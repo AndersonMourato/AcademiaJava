@@ -1,4 +1,4 @@
-package calculadora.simples;
+package exer03;
 
 import java.util.Scanner;
 

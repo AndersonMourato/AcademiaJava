@@ -1,4 +1,4 @@
-package exer02;
+package exer04;
 
 import java.util.Scanner;
 
