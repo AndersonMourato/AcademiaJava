@@ -1,0 +1,22 @@
+Faça um programa de carregamento de credito de telefone, sendo assim de antemão, cadastre MAIS DE UM USUARIO insiram diretamente os dados NOME, NUMERO DE TELEFONE, NUMERO DO Cartão E O CVV, e Cpf 
+
+Faça o cadastro de mais de um telefone
+1. Colocar credito por cartão de credito
+2. Colocar credito por cartão de debito
+3. Colocar credito via PIX
+
+1.1 - Ao entrar neste CASE, informem o valor q deseja colocar no seu celular e o seu número de telefone CORRETO de acordo com a inserção feita no início deste exercício (Como pedido o:  NUMERO DE CELULAR, CPF, NUMERO DO CARTAO E O CVV, e o valor do credito que quer colocar). Se todos os dados forem corretos de acordo com o cadastro dos seus dados ditos anteriormente, confirme o credito efetuado com cartão de credito. E imprima um relatório com as informações do usuário e o valor de credito q foi colocado
+
+2.2 -  
+
+Ao entrar neste CASE, informem o valor q deseja colocar no seu celular e o seu número de telefone CORRETO de acordo com a inserção feita no início deste exercício (Como pedido o:  NUMERO DE CELULAR, CPF, NUMERO DO CARTAO E O CVV, e o valor do credito que quer colocar). Se todos os dados forem corretos de acordo com o cadastro dos seus dados ditos anteriormente, confirme o credito efetuado com cartão  de debito. E imprima um relatório com as informações do usuário e o valor de credito q foi colocado
+
+
+3.3 -  
+
+Ao entrar neste CASE, informem o valor q deseja colocar no seu celular e o seu número de telefone CORRETO de acordo com a inserção feita no início deste exercício (Como pedido o:  NUMERO DE CELULAR, CPF, NUMERO DO CARTAO E O CVV, e o valor do credito que quer colocar). Se todos os dados forem corretos de acordo com o cadastro dos seus dados ditos anteriormente, confirme o credito efetuado com a chave  PIX. E imprima um relatório com as informações do usuário e o valor de credito q foi colocado.
+
+
+
+OBS.: Obrigatório usar LOOPS(while, for, do-while) 
+OBS: Perguntar ao usuário se ele quer inserir alguma coisa novamente. Ate ter uma parte de "Finalizar" a aplicação

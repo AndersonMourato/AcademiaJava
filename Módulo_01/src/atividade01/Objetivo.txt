@@ -1,0 +1,24 @@
+uma aplicação que insira 
+
+Passo 1:
+Nome da pessoa, idade e Sexo(M ou F).
+
+Passo 2:
+Depois, inserir o saldo da conta dessa pessoa.
+
+Passo 3:
+Logo após, determinar as opções do que essa pessoa pode comprar. Exemplo:
+1sapato
+2camisa ..... 
+Passo 4:
+Denominar valor desses itens(sendo assim, precisa determinar o quanto vale o item, tendo a necessidade criar uma variável para cada item), e dizer SE, esse item determinado for MAIOR do que a PESSOA determinada tem na conta, ele não pode comprar. Mas SE não for, ele compra.
+
+Passo 5:
+Quero um CASE que retorne um relatório da pessoa(NOME, IDADE E SEXO) e também o que ela comprou.
+
+Passo 6:
+No Default(um valor padrão que é utilizado se for selecionado algo que não tenha nos seus cases) ela não comprou nada ou não quis fazer nada, vai informar que essa opção não existe.
+
+Obs1.: Tudo usando Scanner para inserções.
+Obs2.: Pesquisem antes de perguntarem alguma coisa.
+Obs3.: No mínimo 3 itens no programa.
