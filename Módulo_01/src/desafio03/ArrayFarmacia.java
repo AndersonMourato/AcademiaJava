@@ -14,13 +14,13 @@ public class ArrayFarmacia {
 		Boolean op = true;
 		int resposta = 0;
 		
-		
 		while (op) {
 			System.out.println();
 			System.out.println("#################### MENU ####################");
 			System.out.println("[1] - ADICIONAR MEDICAMENTO");
 			System.out.println("[2] - EXIBIR LISTA DE MEDICAMENTOS COM ESTOQUE");
-			System.out.println("[3] - ENCERRAR PROGRAMA");
+			System.out.println("[3] - BUSCAR POR NOME");
+			System.out.println("[4] - ENCERRAR PROGRAMA");
 			System.out.println("______________________________________________");
 			System.out.print("Selecione uma opção: ");
 			resposta = scan.nextInt();
@@ -37,7 +37,20 @@ public class ArrayFarmacia {
 					System.out.println("NOME: " + medicamentos.get(i));
 					System.out.println("ESTOQUE: " + estoque.get(i));
 				}				
-			}else if(resposta == 3) {
+			}else if(resposta == 3){
+				System.out.println("Digite o nome para pesquisar: ");
+				String seach = scan2.nextLine();
+				if(seach != "") {
+					for(int i=0; i < medicamentos.size(); i++) {
+						if(medicamentos.get(i).contentEquals(seach)) {
+							System.out.println("MEDICAMENTO: " + medicamentos.get(i));
+							System.out.println("ESTOQUE: " + estoque.get(i));
+						}
+					}
+				}else {
+					System.err.println("Invalido");
+				}
+			}else if(resposta == 4) {
 				System.out.println("Programa finalizado com exito!");
 				op = false;
 			}else {
