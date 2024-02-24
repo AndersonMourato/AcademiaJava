@@ -42,7 +42,7 @@ public class ArrayFarmacia {
 				String seach = scan2.nextLine();
 				if(seach != "") {
 					for(int i=0; i < medicamentos.size(); i++) {
-						if(medicamentos.get(i).contentEquals(seach)) {
+						if(medicamentos.get(i).equalsIgnoreCase(seach)) {
 							System.out.println("MEDICAMENTO: " + medicamentos.get(i));
 							System.out.println("ESTOQUE: " + estoque.get(i));
 						}
