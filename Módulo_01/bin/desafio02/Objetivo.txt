@@ -1,0 +1,23 @@
+Quero um programa que tenha um menu que contenha
+
+MENU 1(Precisa usar Scanner na inserção de dados)
+
+1. Cadastro, inerindo o seu nome, cpf, e sua conta atual no banco;
+2. Relatório geral das informações pessoais (nome, cpf, e saldo da conta );
+
+Obs1:Tentem inserir mais de um usuário, fazendo com que o Menu 1 apareça mais de 1 vez. Sendo assim, necessário o uso de um loop. Podendo adicionar um case "3. Recebidos", podendo simular um caixa, onde vc precisa "declarar" os valores das transferências bancarias, e o remetente que as enviou para vc, com suas informações pessoais(nome, cpf, endereço e data). Para dai, ir para o próximo "Menu 2", com dinheiro novamente, e efetuar mais pagamentos. 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Menu 2(Precisa usar Scanner na inserção de dados)
+
+Com as informações adicionadas, quero q entre em outro SWITCH case, para informar as opções de pagamento bancário. Mas seguindo as informações do mesmo usuário do Menu 1;
+1. Parcela de 1500;
+2. Parcela de 2500;
+3. Parcela de 4500;
+4. Parcela de 5500;
+
+
+Entrando em um dos "cases" informar o saldo da conta. SE o saldo da conta for menor do q o valor estipulado pela recarga, retorna um erro de pagamento não efetuado, ou algo q diga q n tem saldo o suficiente. Mas se estiver tudo ok, sucesso, e pagamento efetuado. 
+
+Obs2: Tentem informar ao usuário, q ele pode pagar novamente, se ele tiver saldo disponível(sendo assim, a adição de um loop).Mas se ele for pagar a mesma parcela, deve ser informado "pagamento já efetuado". Podendo ter a opção tbm de "Voltar para o Menu 1", sendo assim, vc retornará para adicionar os seus "Recebidos", ou ate mesmo colocar no próprio "Menu 2" o case "Recebidos", sem problemas, para já trazer as transferências e as informações do remetente;
