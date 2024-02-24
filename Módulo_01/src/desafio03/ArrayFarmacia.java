@@ -26,12 +26,10 @@ public class ArrayFarmacia {
 			resposta = scan.nextInt();
 			
 			if(resposta == 1) {
-				System.out.print("INFORME O NOME DO MEDICAMENTO: ");
-				String nome = scan2.nextLine();
-				medicamentos.add(medicamentos.size(), nome);
+				System.out.println("INFORME O NOME DO MEDICAMENTO: ");
+				medicamentos.add(medicamentos.size(), scan2.nextLine());
 				System.out.print("INFORME A QUANTIDADE DE ESTOQUE: ");
-				int qtd = scan.nextInt();
-				estoque.add(estoque.size(), qtd);
+				estoque.add(estoque.size(), scan.nextInt());
 				
 			}else if(resposta == 2) {
 				for(int i=0; i< medicamentos.size(); i++) {
@@ -45,7 +43,6 @@ public class ArrayFarmacia {
 			}else {
 				System.out.println("Opção invalida, tente novamente");
 			}
-	
 		}
 			
 	}
