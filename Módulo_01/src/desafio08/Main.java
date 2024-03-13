@@ -6,14 +6,16 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Loja loja = new Loja();
+		loja.dadosTeste();
+		
 		int op = 0;
 		boolean loop = true;
 		
 		while (loop) {
-			System.out.println("\n\n################ MENU DE OPÇÕES DA ESCOLA ################");
+			System.out.println("\n\n################ MENU DE OPÇÕES DA LOJA ################");
 			System.out.println("[1] - CADASTRAR CARRO");
 			System.out.println("[2] - CADASTRAR CLIENTE");
-			System.out.println("[3] - PESQUISAR CARRO POR PLACA");
+			System.out.println("[3] - PESQUISAR CARRO POR PLACA E ALTERAR");
 			System.out.println("[4] - PESQUISAR CLIENTE POR CPF");
 			System.out.println("[5] - REMOVER CARRO POR PLACA");
 			System.out.println("[6] - LISTAR TODOS OS CLIENTES");
@@ -28,7 +30,7 @@ public class Main {
 				break;
 				case 2: loja.addCliente();
 				break;
-				case 3: System.err.println("Falta implementar!");
+				case 3: loja.updateCarro();
 				break;
 				case 4: System.err.println("Falta implementar!");
 				break;
@@ -36,7 +38,7 @@ public class Main {
 				break;
 				case 6: System.err.println("Falta implementar!");
 				break;
-				case 7: System.err.println("Falta implementar!");
+				case 7: loja.listaCarros();
 				break;
 				case 8: System.out.println("Programa finalizado com exito."); loop = false; 
 				break;
