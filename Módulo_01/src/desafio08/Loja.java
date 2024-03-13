@@ -30,7 +30,7 @@ public class Loja extends SistemaLoja {
 			System.out.print("VALOR R$: ");
 			car.setValorAproximado(sc.nextFloat());
 			sc.nextLine(); // resolver bug scan.
-			System.out.print("CLIENTE: " + buscarClienteCpf(cpf).getNome());
+			System.out.print("DONO: " + buscarClienteCpf(cpf).getNome());
 			car.setDono(buscarClienteCpf(cpf));
 			
 			carrosList.add(car);
@@ -113,7 +113,29 @@ public class Loja extends SistemaLoja {
 
 	@Override
 	public Cliente updateCliente() {
-		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Informe o CPF: ");
+		String cpf = sc.nextLine();
+		
+		if(buscarClienteCpf(cpf) != null) {
+			Cliente client = buscarClienteCpf(cpf);
+			System.out.println("\n############# ATUALIZAR CLIENTE #############");
+			System.out.println("NOME: " + client.getNome());
+			System.out.println("IDADE: " + client.getIdade());
+			System.out.println("CPF: " + client.getCpf());
+			System.out.println("TELEFONE: " + client.getTelefone());
+			System.out.println("ENDEREÇO: " + client.getNome() +"\n");
+			client.setNome(inputUpdate("NOME") ? sc.nextLine() : client.getNome());
+			client.setIdade(inputUpdate("IDADE") ? sc.nextInt() : client.getIdade());
+			client.setCpf(inputUpdate("CPF") ? sc.nextLine() : client.getCpf());
+			client.setTelefone(inputUpdate("TELEFONE") ? sc.nextLine() : client.getTelefone());
+			client.setEndereco(inputUpdate("ENDEREÇIO") ? sc.nextLine() : client.getNome());
+			
+			return client;
+		}else {
+			System.err.println("O CPF: "+cpf+" não foi encontrado na base, tente novamente...");
+		}
 		return null;
 	}
 
@@ -139,7 +161,18 @@ public class Loja extends SistemaLoja {
 		return null;
 	}
 	
-	public void dadosTeste() {
+	
+	private boolean inputUpdate(String str) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Deseja alterar "+str+"? [S]/[N]");
+		String op = sc.nextLine();
+		if(op.equalsIgnoreCase("S")){
+			return true;
+		}
+		return false;
+	}
+	
+	public void aplicarDadosTeste() {
 		Cliente c1 = new Cliente("Antonio Luiz", 33, "123456", "8199656985", "Rua Joge Dantas");
 		Cliente c2 = new Cliente("Maria Julia", 21, "456789", "8188775544", "Rua Carvalho Sul");
 		Cliente c3 = new Cliente("Diego Martinz", 33, "321654", "8199656985", "Rua Centro Norte");

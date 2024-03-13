@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Loja loja = new Loja();
-		loja.dadosTeste();
+		loja.aplicarDadosTeste();
 		
 		int op = 0;
 		boolean loop = true;
@@ -16,7 +16,7 @@ public class Main {
 			System.out.println("[1] - CADASTRAR CARRO");
 			System.out.println("[2] - CADASTRAR CLIENTE");
 			System.out.println("[3] - PESQUISAR CARRO POR PLACA E ALTERAR");
-			System.out.println("[4] - PESQUISAR CLIENTE POR CPF");
+			System.out.println("[4] - PESQUISAR CLIENTE POR CPF E ALTERAR");
 			System.out.println("[5] - REMOVER CARRO POR PLACA");
 			System.out.println("[6] - LISTAR TODOS OS CLIENTES");
 			System.out.println("[7] - LISTAR TODOS OS CARROS");
@@ -32,7 +32,7 @@ public class Main {
 				break;
 				case 3: loja.updateCarro();
 				break;
-				case 4: System.err.println("Falta implementar!");
+				case 4: loja.updateCliente();
 				break;
 				case 5: System.err.println("Falta implementar!");
 				break;
