@@ -18,9 +18,10 @@ public class Main {
 			System.out.println("[3] - PESQUISAR CARRO POR PLACA E ALTERAR");
 			System.out.println("[4] - PESQUISAR CLIENTE POR CPF E ALTERAR");
 			System.out.println("[5] - REMOVER CARRO POR PLACA");
-			System.out.println("[6] - LISTAR TODOS OS CLIENTES");
+			System.out.println("[6] - REMOVER CLIENTE POR CPF/TEL");
 			System.out.println("[7] - LISTAR TODOS OS CARROS");
-			System.out.println("[8] - ENCERRAR PROGRAMA");
+			System.out.println("[8] - LISTAR TODOS OS CLIENTES");
+			System.out.println("[9] - ENCERRAR PROGRAMA");
 			System.out.println("___________________________________________________________\n");
 			System.out.println("Digite uma opção: ");
 			op = sc.nextInt();
@@ -34,13 +35,15 @@ public class Main {
 				break;
 				case 4: loja.updateCliente();
 				break;
-				case 5: System.err.println("Falta implementar!");
+				case 5: loja.dellCarro();
 				break;
-				case 6: System.err.println("Falta implementar!");
+				case 6: loja.dellCliente();
 				break;
 				case 7: loja.listaCarros();
 				break;
-				case 8: System.out.println("Programa finalizado com exito."); loop = false; 
+				case 8: loja.listaClientes();
+				break;
+				case 9: System.out.println("Programa finalizado com exito."); loop = false; 
 				break;
 				default: System.err.println("A opção informada é Invalida!");
 			}

@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Loja extends SistemaLoja {
 	private ArrayList<Carro> carrosList = new ArrayList<>();
 	private ArrayList<Cliente> clientesList = new ArrayList<>();
-	
-	
 
 	@Override
 	public Carro addCarro() {
@@ -84,12 +82,6 @@ public class Loja extends SistemaLoja {
 	}
 
 	@Override
-	public void dellCarro() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public Cliente addCliente() {
 		Cliente client = new Cliente();
 		Scanner sc = new Scanner(System.in);
@@ -140,9 +132,18 @@ public class Loja extends SistemaLoja {
 	}
 
 	@Override
-	public void dellCliente() {
-		// TODO Auto-generated method stub
-		
+	public boolean dellCliente() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Informe o CPF ou TELEFONE: ");
+		String str = sc.nextLine();
+		for(int i=0; i < clientesList.size(); i++) {
+			if(clientesList.get(i).getCpf().equalsIgnoreCase(str) || clientesList.get(i).getCpf().equalsIgnoreCase(str)){
+				clientesList.remove(i);
+				System.err.println("*Removido!");
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@Override
@@ -160,7 +161,6 @@ public class Loja extends SistemaLoja {
 		}
 		return null;
 	}
-	
 	
 	private boolean inputUpdate(String str) {
 		Scanner sc = new Scanner(System.in);
@@ -182,5 +182,32 @@ public class Loja extends SistemaLoja {
 		clientesList.add(c1);
 		clientesList.add(c2);
 		clientesList.add(c3);
+	}
+
+	
+	@Override
+	public boolean dellCarro() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Informe a PLACA do carro: ");
+		String str = sc.nextLine();
+		for(int i=0; i < clientesList.size(); i++) {
+			if(clientesList.get(i).getCpf().equalsIgnoreCase(str) || clientesList.get(i).getCpf().equalsIgnoreCase(str)){
+				clientesList.remove(i);
+				System.err.println("*Removido!");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	
+	@Override
+	public void listaClientes() {
+		System.out.println("	NOME	|	IDADE	|	CPF	|	TELEFONE	|	ENDEREÇO");
+		System.out.println("---------------------------------------------------------------------------------------------------------------");
+		for (Cliente client: clientesList) {
+			System.out.println(" "+client.getNome() +"	|	"+ client.getIdade() +"	|	"+ client.getCpf() +"	|	"+ client.getTelefone() +"	|	" + client.getEndereco());
+			System.out.println("---------------------------------------------------------------------------------------------------------------");
+		}
 	}
 }
