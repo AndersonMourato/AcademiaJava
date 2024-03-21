@@ -149,7 +149,9 @@ public class Loja extends SistemaLoja {
 	@Override
 	public Cliente buscarClienteCpf(String cpf) {
 		for (Cliente client: clientesList) {
-			return client.getCpf().equalsIgnoreCase(cpf)? client : null;
+			if(client.getCpf().equalsIgnoreCase(cpf)) {
+				return client;
+			}
 		}
 		return null;
 	}
@@ -157,7 +159,9 @@ public class Loja extends SistemaLoja {
 	@Override
 	public Carro buscarCarroPlaca(String placa) {
 		for (Carro car: carrosList) {
-			return car.getPlaca().equalsIgnoreCase(placa)? car : null;
+			if(car.getPlaca().equalsIgnoreCase(placa)) {
+				return car;
+			}
 		}
 		return null;
 	}
