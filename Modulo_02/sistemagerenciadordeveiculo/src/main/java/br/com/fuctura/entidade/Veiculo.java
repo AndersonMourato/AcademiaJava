@@ -5,9 +5,9 @@ public class Veiculo {
 	private String marca;
 	private String modelo;
 	private int ano;
+	private float valor;
 	private Cliente dono;
 	TipoVeiculo tipo;
-	
 	
 	public String getPlaca() {
 		return placa;
@@ -33,10 +33,23 @@ public class Veiculo {
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
+	public float getValor() {
+		return valor;
+	}
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
 	public Cliente getDono() {
 		return dono;
 	}
 	public void setDono(Cliente dono) {
 		this.dono = dono;
-	}	
+	}
+	public TipoVeiculo getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoVeiculo tipo) {
+		this.tipo = tipo;
+	}
+	
 }
