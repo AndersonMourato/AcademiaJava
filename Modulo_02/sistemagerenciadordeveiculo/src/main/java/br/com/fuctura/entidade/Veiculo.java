@@ -1,6 +1,8 @@
 package br.com.fuctura.entidade;
 
+
 public class Veiculo {
+	private int codigo;
 	private String placa;
 	private String marca;
 	private String modelo;
@@ -50,6 +52,12 @@ public class Veiculo {
 	}
 	public void setTipo(TipoVeiculo tipo) {
 		this.tipo = tipo;
+	}
+	public int getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 	
 }
