@@ -1,4 +1,4 @@
-package br.com.fuctura.controle;
+package br.com.fuctura.menu;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 import com.github.javafaker.Faker;
 
-import br.com.fuctura.connection.Conexcao;
+import br.com.fuctura.conexao.Conexao;
 import br.com.fuctura.dao.VeiculoDAO;
 import br.com.fuctura.entidade.Veiculo;
 
-public class ControleLoja {
+public class ControleMenu {
 	private Scanner sc = new Scanner(System.in);
-	private Conexcao conn = new Conexcao();
+	private Conexao conn = new Conexao();
 	private VeiculoDAO veiculoDAO = new VeiculoDAO();
 	
 	//************************** MENUS **************************
@@ -39,7 +39,7 @@ public class ControleLoja {
 					break;
 				default: System.err.println("A opção informada é Invalida!");
 			}
-		} 
+		}
 	}	
 	private void menuFrenteLoja() throws SQLException {
 		int op = 0;
@@ -174,7 +174,7 @@ public class ControleLoja {
 	private void getAllVehicles() throws SQLException  {
 		List<Veiculo> listVeiculos = new ArrayList<>();
 		
-		listVeiculos = this.veiculoDAO.getAll(this.conn.conect());
+		listVeiculos = this.veiculoDAO.getAll(conn.getConexao());
 		System.out.println("---------------- LISTA DE VEICULOS ----------------");
 		for(Veiculo veiculo : listVeiculos) {
 			System.out.println(veiculo.getCodigo() +"  |  "+ veiculo.getModelo() +"  |  "+ veiculo.getPlaca() + "  |  "+ veiculo.getAno() +"  |  R$ "+ String.format("%.2f", veiculo.getValor()));
@@ -188,7 +188,7 @@ public class ControleLoja {
 		System.out.print("Informe a PLACA ou o MODELO: ");
 		String str = "%"+this.sc.nextLine()+"%";
 		
-		listVeiculos = this.veiculoDAO.getVehicle(this.conn.conect(), str);
+		listVeiculos = this.veiculoDAO.getVehicle(conn.getConexao(), str);
 		System.out.println("------------------ BUSCA POR "+str+" ------------------");
 		for(Veiculo veiculo : listVeiculos) {
 			System.out.println(veiculo.getCodigo() +"  |  "+ veiculo.getModelo() +"  |  "+ veiculo.getPlaca() + "  |  "+ veiculo.getAno() +"  |  R$ "+ String.format("%.2f", veiculo.getValor()));
@@ -210,7 +210,7 @@ public class ControleLoja {
 			System.out.println("-------------------------------------------");
 			System.out.println(v.getModelo() +"  |  " + v.getPlaca() +"  |  " + v.getAno() +"  |  R$ "+ String.format("%.2f", v.getValor()));
 			System.out.println("-------------------------------------------");	
-			this.veiculoDAO.insert(this.conn.conect(), v);
+			this.veiculoDAO.insert(conn.getConexao(), v);
 		}else {
 			System.out.println("Prencha os campos");
 			System.out.print("PLACA: ");
@@ -222,11 +222,16 @@ public class ControleLoja {
 			this.sc.nextLine();
 			System.out.print("VALOR: ");
 			v.setValor(this.sc.nextFloat());
-			this.veiculoDAO.insert(this.conn.conect(), v);
+			this.veiculoDAO.insert(conn.getConexao(), v);
 		}
 	}
 	private void updateVehicle() throws SQLException{
+		searcheVehicles();
+		System.out.println("Confirme informando o ID do Veiculo a ser alterado.");
+		Veiculo v = new Veiculo();
+		v = this.veiculoDAO.getVehicleId(conn.getConexao(), this.sc.nextInt());
 		
+		this.veiculoDAO.update(conn.getConexao(), v);
 	}
 	private void deleteVehicle() throws SQLException{
 		

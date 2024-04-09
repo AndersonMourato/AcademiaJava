@@ -50,14 +50,29 @@ public class VeiculoDAO {
 	    List<Veiculo> list = new ArrayList<>();
 	    while (rs.next()) {
 	    	Veiculo v = new Veiculo();
-	    	v.setCodigo(Integer.parseInt(rs.getString("codigo")));
+	    	v.setCodigo((rs.getInt("codigo")));
 	    	v.setPlaca(rs.getString("placa"));
 			v.setModelo(rs.getString("modelo"));
-			v.setAno(Integer.parseInt(rs.getString("ano")));
-			v.setValor(Float.parseFloat(rs.getString("valor")));
+			v.setAno(rs.getInt("ano"));
+			v.setValor(rs.getInt("valor"));
 	        list.add(v);
 	    }
 	    return list;
+	}
+
+	public Veiculo getVehicleId(Connection conn, int cod) throws SQLException {
+		String sql = "select * from veiculo where codigo = ?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, cod);
+	    ResultSet rs = pstm.executeQuery();
+		
+	    	Veiculo v = new Veiculo();
+	    	v.setCodigo((rs.getInt("codigo")));
+	    	v.setPlaca(rs.getString("placa"));
+			v.setModelo(rs.getString("modelo"));
+			v.setAno(rs.getInt("ano"));
+			v.setValor(rs.getInt("valor"));
+	    return v;
 	}
 	
 	public List<Veiculo> getAll(Connection conn) throws SQLException {
@@ -68,11 +83,11 @@ public class VeiculoDAO {
 		List<Veiculo> list = new ArrayList<>();
 	    while (rs.next()) {
 	    	Veiculo v = new Veiculo();
-	    	v.setCodigo(Integer.parseInt(rs.getString("codigo")));
+	    	v.setCodigo(rs.getInt("codigo"));
 	    	v.setPlaca(rs.getString("placa"));
 			v.setModelo(rs.getString("modelo"));
-			v.setAno(Integer.parseInt(rs.getString("ano")));
-			v.setValor(Float.parseFloat(rs.getString("valor")));
+			v.setAno(rs.getInt("ano"));
+			v.setValor(rs.getFloat("valor"));
 	        list.add(v);
 	    }
 	    return list;
