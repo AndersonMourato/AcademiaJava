@@ -1,20 +1,21 @@
 package br.com.fuctura.menu;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Home {
 	private Menu menu = new Menu();
 	private FrenteLoja menuFrenteLoja = new FrenteLoja();
+	private ManutencaoCadastro menuManutCadastro = new ManutencaoCadastro();
 	
-	public void init() {
+	public void init() throws SQLException {
 		List<String> opcoes = new ArrayList<>();
 		menu.setNome("BEM VINDO");
 		opcoes.add("FRENTE DE LOJA");
 		opcoes.add("MANUTENCAO DE CADASTRO");
 		opcoes.add("ENCERRAR PROGRAMA");
 		menu.setOpcoes(opcoes);
-		
 		
 		boolean loop = true;
 		while (loop) {	
@@ -23,7 +24,7 @@ public class Home {
 			switch(op) {
 				case 0: menuFrenteLoja.init();
 					break;
-				case 1:  System.out.println("***** Chama menu LOJAS ******"); //subMenuLoja();
+				case 1:  menuManutCadastro.init();
 					break;
 				case 2:System.out.println("Programa encerrado.."); loop = false; 
 					break;

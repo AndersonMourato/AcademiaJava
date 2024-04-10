@@ -14,8 +14,59 @@ import br.com.fuctura.entidade.Veiculo;
 public class Veiculos {
 	private Conexao conn = new Conexao();
 	private VeiculoDAO veiculoDAO = new VeiculoDAO();
+	private Menu menu = new Menu();
+	
+	public void init() throws SQLException {
+		List<String> opcoes = new ArrayList<>();
+		menu.setNome("VEICULOS");
+		opcoes.add("BUSCAR VEICULO POR PLACA OU MODELO");
+		opcoes.add("LISTAR TODOS OS VEICULOS");
+		opcoes.add("RETORNAR O MENU ANTERIOR");
+		menu.setOpcoes(opcoes);
+		
+		boolean loop = true;
+		while (loop) {	
+			int op;
+			op = menu.getMenu();
+			switch(op) {
+				case 0: getModeloPlaca();;
+					break;
+				case 1:  getAll();
+					break;
+				case 2: System.out.println("Programa encerrado.."); loop = false; 
+					break;
+				default: System.err.println("A opção informada é Invalida!");
+			}
+		}
+	}
+	public void initGerenciar() throws SQLException {
+		List<String> opcoes = new ArrayList<>();
+		menu.setNome("GERENCIAR VEICULOS");
+		opcoes.add("CADASTRAR VEICULO");
+		opcoes.add("ALTERAR VEICULO");
+		opcoes.add("REMOVER VEICULO");
+		opcoes.add("RETORNAR O MENU ANTERIOR");
+		menu.setOpcoes(opcoes);
+		
+		boolean loop = true;
+		while (loop) {	
+			int op;
+			op = menu.getMenu();
+			switch(op) {
+				case 0: setVeiculo();
+					break;
+				case 1:  updateVeiculo();
+					break;
+				case 2:  deleteVeiculo();
+					break;
+				case 3: System.out.println("Programa encerrado.."); loop = false; 
+					break;
+				default: System.err.println("A opção informada é Invalida!");
+			}
+		}
+	}
 
-	public void getAllVehicles() throws SQLException  {
+	public void getAll() throws SQLException  {
 		List<Veiculo> listVeiculos = new ArrayList<>();
 		
 		listVeiculos = veiculoDAO.getAll(conn.getConexao());
@@ -26,22 +77,21 @@ public class Veiculos {
 		}
 		System.out.println(listVeiculos.size() + " Registros.");
 	}
-	
-	public void searcheVehicles() throws SQLException {
+	public void getModeloPlaca() throws SQLException {
 		Scanner sc = new Scanner(System.in);
 		List<Veiculo> listVeiculos = new ArrayList<>();
 
 		System.out.print("Informe a PLACA ou o MODELO: ");
 		String str = "%"+ sc.nextLine() +"%";
 		
-		listVeiculos = this.veiculoDAO.getVehicle(conn.getConexao(), str);
+		listVeiculos = veiculoDAO.getModeloPlaca(conn.getConexao(), str);
 		System.out.println("------------------ BUSCA POR "+str+" ------------------");
 		for(Veiculo veiculo : listVeiculos) {
 			System.out.println(veiculo.getCodigo() +"  |  "+ veiculo.getModelo() +"  |  "+ veiculo.getPlaca() + "  |  "+ veiculo.getAno() +"  |  R$ "+ String.format("%.2f", veiculo.getValor()));
 			System.out.println("---------------------------------------------------");
 		}				
 	}
-	public void insertVehicle() throws SQLException {
+	public void setVeiculo() throws SQLException {
 		Scanner sc = new Scanner(System.in);
 		Veiculo v = new Veiculo();
 		System.out.println("------------ CADASTRO DE VEICULO ------------");
@@ -57,7 +107,7 @@ public class Veiculos {
 			System.out.println("-------------------------------------------");
 			System.out.println(v.getModelo() +"  |  " + v.getPlaca() +"  |  " + v.getAno() +"  |  R$ "+ String.format("%.2f", v.getValor()));
 			System.out.println("-------------------------------------------");	
-			this.veiculoDAO.insert(conn.getConexao(), v);
+			veiculoDAO.insert(conn.getConexao(), v);
 		}else {
 			System.out.println("Prencha os campos");
 			System.out.print("PLACA: ");
@@ -69,19 +119,23 @@ public class Veiculos {
 			sc.nextLine();
 			System.out.print("VALOR: ");
 			v.setValor(sc.nextFloat());
-			this.veiculoDAO.insert(conn.getConexao(), v);
+			veiculoDAO.insert(conn.getConexao(), v);
 		}
 	}
-	public void updateVehicle() throws SQLException{
-		Scanner sc = new Scanner(System.in);
-		searcheVehicles();
-		System.out.println("Confirme informando o ID do Veiculo a ser alterado.");
-		Veiculo v = new Veiculo();
-		v = this.veiculoDAO.getVehicleId(conn.getConexao(), sc.nextInt());
+	public void updateVeiculo() throws SQLException{
 		
-		this.veiculoDAO.update(conn.getConexao(), v);
+		//# TRATAR ERRO CASO NÃO ENCONTRE A PLACA.
+		//# EXIBIR INFORMAÇÕES LOCALIZADA.
+		//# ALTERAR INFORMAÇÕES.
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Informe a PLACA do Veiculo a ser alterado.");
+		Veiculo v = new Veiculo();
+		v = veiculoDAO.getPlaca(conn.getConexao(), sc.next());
+		
+		veiculoDAO.update(conn.getConexao(), v);
 	}
-	public void deleteVehicle() throws SQLException{
+	public void deleteVeiculo() throws SQLException{
 		
 	}
 }

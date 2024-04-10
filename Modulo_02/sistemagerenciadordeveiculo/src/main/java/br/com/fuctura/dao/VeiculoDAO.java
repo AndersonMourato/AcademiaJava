@@ -32,25 +32,24 @@ public class VeiculoDAO {
 		pstm.execute();
 	}
 	
-	public void delete(Connection conn, Veiculo v) throws SQLException {
+	public void deleteId(Connection conn, Veiculo v) throws SQLException {
 		String sql = "delete from veiculo where codigo = ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setInt(1, v.getCodigo());
 		pstm.execute();
 	}
 	
-	public List<Veiculo> getVehicle(Connection conn, String search) throws SQLException {
+	public List<Veiculo> getModeloPlaca(Connection conn, String search) throws SQLException {
 		String sql = "select * from veiculo where modelo like ? or placa like ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setString(1, search);
 		pstm.setString(2, search);
-		//pstm.execute();
 	    ResultSet rs = pstm.executeQuery();
 		
 	    List<Veiculo> list = new ArrayList<>();
 	    while (rs.next()) {
 	    	Veiculo v = new Veiculo();
-	    	v.setCodigo((rs.getInt("codigo")));
+	    	v.setCodigo(rs.getInt("codigo"));
 	    	v.setPlaca(rs.getString("placa"));
 			v.setModelo(rs.getString("modelo"));
 			v.setAno(rs.getInt("ano"));
@@ -60,19 +59,21 @@ public class VeiculoDAO {
 	    return list;
 	}
 
-	public Veiculo getVehicleId(Connection conn, int cod) throws SQLException {
-		String sql = "select * from veiculo where codigo = ?";
+	public Veiculo getPlaca(Connection conn, String placa) throws SQLException {
+		String sql = "select * from veiculo where placa like ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
-		pstm.setInt(1, cod);
+		pstm.setString(1, placa);
 	    ResultSet rs = pstm.executeQuery();
-		
+	    while (rs.next()) {
 	    	Veiculo v = new Veiculo();
-	    	v.setCodigo((rs.getInt("codigo")));
+	    	v.setCodigo(rs.getInt("codigo"));
 	    	v.setPlaca(rs.getString("placa"));
 			v.setModelo(rs.getString("modelo"));
 			v.setAno(rs.getInt("ano"));
 			v.setValor(rs.getInt("valor"));
-	    return v;
+			return v;
+	    }
+	    return null;
 	}
 	
 	public List<Veiculo> getAll(Connection conn) throws SQLException {

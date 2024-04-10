@@ -4,18 +4,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrenteLoja {
-	private Menu menu = new Menu();
-	private Veiculos menuVeiculo = new Veiculos();
+public class ManutencaoCadastro {
+private Menu menu = new Menu();
+private Veiculos menuVeiculo = new Veiculos();
 	
 	public void init() throws SQLException {
 		List<String> opcoes = new ArrayList<>();
-		menu.setNome("FRENTE DE LOJA");
-		opcoes.add("VEICULOS");
-		opcoes.add("LOJAS");
-		opcoes.add("VENDEDORES");
-		opcoes.add("CLIENTES");
-		opcoes.add("VENDAS");
+		menu.setNome("MANUTENCAO DE CADASTRO");
+		opcoes.add("GERENCIAR VEICULOS");
+		opcoes.add("GERENCIAR LOJA");
+		opcoes.add("GERENCIAR VENDEDOR");
+		opcoes.add("GERENCIAR CLIENTE");
+		opcoes.add("GERENCIAR VENDAS");
 		opcoes.add("RETORNAR O MENU ANTERIOR");
 		menu.setOpcoes(opcoes);
 		
@@ -24,7 +24,7 @@ public class FrenteLoja {
 			int op;
 			op = menu.getMenu();
 			switch(op) {
-				case 0: menuVeiculo.init();
+				case 0: menuVeiculo.initGerenciar();
 					break;
 				case 1:  System.out.println("***** Chama menu LOJAS ******"); //subMenuLoja();
 					break;
