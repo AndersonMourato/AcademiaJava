@@ -49,7 +49,7 @@ public class Menu {
 				}
 			}
 			
-			// #SIMULANDO UM SWITCH CASE DA OP SELECIONADA DE FORMA DINAMICA
+			// #SIMULANDO UM SWITCH CASE PARA PECORRER UMA LISTA DE METODOS DE FORMA DINAMICA
 			/*  
 			for(int i=0; i <= opcoes.size(); i++) {				
 				if(op == i && op < opcoes.size() ){

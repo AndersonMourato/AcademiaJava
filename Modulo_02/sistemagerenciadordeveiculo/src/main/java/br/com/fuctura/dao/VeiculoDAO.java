@@ -32,7 +32,7 @@ public class VeiculoDAO {
 		pstm.execute();
 	}
 	
-	public void deleteId(Connection conn, Veiculo v) throws SQLException {
+	public void delete(Connection conn, Veiculo v) throws SQLException {
 		String sql = "delete from veiculo where codigo = ?";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setInt(1, v.getCodigo());
