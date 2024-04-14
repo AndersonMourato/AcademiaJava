@@ -1,0 +1,40 @@
+
+# Maven
+target/
+*.class
+
+# IntelliJ IDEA
+out/
+*.iml
+
+# Eclipse
+bin/
+*.bak
+*.tmp
+
+# Arquivos gerados automaticamente
+
+*.log
+hs_err_pid*.log
+
+# IDE e arquivos de configuração do editor
+
+# IntelliJ IDEA
+.idea/
+workspace.xml
+
+# Eclipse
+.metadata/
+.classpath
+.project
+
+# Arquivos temporários
+
+# Vim
+*.swp
+*.undo
+
+# Git
+# Ignora arquivos Git e seus respectivos diretórios de trabalho
+.git/
+*~

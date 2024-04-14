@@ -1,6 +1,6 @@
 package br.com.fuctura.entidade;
 
-public class TipoVeiculo {
+public class Vendedor {
 	private int codigo;
 	private String nome;
 	
@@ -16,4 +16,5 @@ public class TipoVeiculo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-}
+
+}	

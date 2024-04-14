@@ -1,6 +1,6 @@
 package br.com.fuctura.entidade;
 
-public class TipoVeiculo {
+public class Loja {
 	private int codigo;
 	private String nome;
 	
