@@ -4,9 +4,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FrenteLoja {
 	private Menu menu = new Menu();
 	private Veiculos menuVeiculo = new Veiculos();
+	private Lojas menuLoja = new Lojas();
 	
 	public void init() throws SQLException {
 		List<String> opcoes = new ArrayList<>();
@@ -26,7 +28,7 @@ public class FrenteLoja {
 			switch(op) {
 				case 0: menuVeiculo.init();
 					break;
-				case 1:  System.out.println("***** Chama menu LOJAS ******"); //subMenuLoja();
+				case 1:  menuLoja.init();
 					break;
 				case 2:  System.out.println("***** Chama menu VENDEDOR ******"); //subMenuVendedor();
 					break;

@@ -46,4 +46,18 @@ public class LojaDAO {
 	    }
 	    return list;
 	}
+	
+	public Loja getLojaCod(Connection conn, int cod) throws SQLException {
+		String sql = "select * from loja where codigo = ?";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setInt(1, cod);
+	    ResultSet rs = pstm.executeQuery();
+	    
+		Loja l = new Loja();
+	    while (rs.next()) {
+	    	l.setCodigo(rs.getInt("codigo"));
+	    	l.setNome(rs.getString("nome"));
+	    }
+	    return l;
+	}
 }

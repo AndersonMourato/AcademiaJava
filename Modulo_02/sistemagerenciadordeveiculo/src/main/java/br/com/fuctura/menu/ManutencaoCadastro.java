@@ -7,6 +7,7 @@ import java.util.List;
 public class ManutencaoCadastro {
 private Menu menu = new Menu();
 private Veiculos menuVeiculo = new Veiculos();
+private Lojas menuLojas = new Lojas();
 	
 	public void init() throws SQLException {
 		List<String> opcoes = new ArrayList<>();
@@ -26,7 +27,7 @@ private Veiculos menuVeiculo = new Veiculos();
 			switch(op) {
 				case 0: menuVeiculo.initGerenciar();
 					break;
-				case 1:  System.out.println("***** Chama menu LOJAS ******"); //subMenuLoja();
+				case 1:  menuLojas.initGerenciar();
 					break;
 				case 2:  System.out.println("***** Chama menu VENDEDOR ******"); //subMenuVendedor();
 					break;
