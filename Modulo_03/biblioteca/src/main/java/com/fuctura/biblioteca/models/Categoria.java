@@ -12,7 +12,7 @@ public class Categoria {
     private String nome;
     private String descricao;
 
-    @OneToMany
+    @OneToMany(mappedBy = "categoria")
     private List<Livro> livros = new ArrayList<>();
 
     public Categoria() {

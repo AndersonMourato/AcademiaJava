@@ -15,7 +15,9 @@ public class Livro {
     private String texto;
 
     private Tamanho tamanho;
+
     @ManyToOne
+    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     public Livro() {
