@@ -5,9 +5,9 @@ public enum Tamanho {
     MEDIO(1),
     GRANDE(2);
 
-    private int cod;
+    private Integer cod;
 
-    Tamanho(int cod){
+    Tamanho(Integer cod){
        this.cod = cod;
     }
 }

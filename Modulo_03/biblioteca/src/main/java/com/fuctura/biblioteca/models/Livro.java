@@ -1,5 +1,6 @@
 package com.fuctura.biblioteca.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fuctura.biblioteca.enuns.Tamanho;
 import org.hibernate.annotations.ManyToAny;
 
@@ -9,13 +10,14 @@ import javax.persistence.*;
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nome;
     private String autor;
     private String texto;
 
     private Tamanho tamanho;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
@@ -23,7 +25,7 @@ public class Livro {
     public Livro() {
     }
 
-    public Livro(int id, String nome, String autor, String texto, Tamanho tamanho, Categoria categoria) {
+    public Livro(Integer id, String nome, String autor, String texto, Tamanho tamanho, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.autor = autor;
@@ -32,11 +34,11 @@ public class Livro {
         this.categoria = categoria;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
