@@ -3,12 +3,14 @@ package com.fuctura.biblioteca.controllers;
 import com.fuctura.biblioteca.dtos.CategoriaDTO;
 import com.fuctura.biblioteca.models.Categoria;
 import com.fuctura.biblioteca.services.CategoriaService;
+import org.apache.coyote.Response;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/categoria")
@@ -27,9 +29,9 @@ public class CategoriaController {
     }
 
     @GetMapping
-    public List<Categoria> findAll(){
-        List<Categoria> listCategorias = categoriaService.findAll();
-        return listCategorias;
+    public ResponseEntity<List<CategoriaDTO>> findAll(){
+        List<CategoriaDTO> listCategorias = categoriaService.findAll();
+        return ResponseEntity.ok().body(listCategorias);
     }
 
     @PostMapping
@@ -44,7 +46,8 @@ public class CategoriaController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id){
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
         categoriaService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
