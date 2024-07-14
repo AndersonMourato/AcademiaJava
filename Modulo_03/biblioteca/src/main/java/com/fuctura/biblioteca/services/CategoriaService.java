@@ -5,6 +5,7 @@ import com.fuctura.biblioteca.exceptions.DataIntegrityViolationException;
 import com.fuctura.biblioteca.exceptions.IllegalArgumentException;
 import com.fuctura.biblioteca.exceptions.ObjectNotFoundExeption;
 import com.fuctura.biblioteca.models.Categoria;
+import com.fuctura.biblioteca.models.Livro;
 import com.fuctura.biblioteca.repositories.CategoriaRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +65,13 @@ public class CategoriaService {
         if(cat.isPresent() && cat.get().getNome().equalsIgnoreCase(categoriaDTO.getNome())){
             throw new IllegalArgumentException("Categoria já cadastrada");
         }
+    }
+
+    public void buscarNome(String nome){
+        Optional<Categoria> cat = categoriaRepository.findByNomeContainingIgnoreCase(nome);
+        if (cat.isEmpty()){
+            throw new ObjectNotFoundExeption("Categoria não existe!");
+        }
+
     }
 }

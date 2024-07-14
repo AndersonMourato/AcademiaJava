@@ -1,6 +1,7 @@
 package com.fuctura.biblioteca.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fuctura.biblioteca.dtos.CategoriaDTO;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -25,6 +26,12 @@ public class Categoria {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
+    }
+
+    public Categoria(CategoriaDTO categoria) {
+        this.id = categoria.getId();
+        this.nome = categoria.getNome();
+        this.descricao = categoria.getDescricao();
     }
 
     public Integer getId() {
