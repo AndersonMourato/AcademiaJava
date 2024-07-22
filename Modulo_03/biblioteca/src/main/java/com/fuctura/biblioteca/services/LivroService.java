@@ -21,9 +21,6 @@ public class LivroService {
     @Autowired
     private CategoriaService categoriaService;
 
-    @Autowired
-    private LivroService livroService;
-
     public Livro findById(Integer id) {
         Optional<Livro> livro = livroRepository.findById(id);
         if (livro.isPresent()) {
@@ -54,7 +51,7 @@ public class LivroService {
     }
 
     public Livro update(Integer id, Livro livro) {
-        livroService.findById(id);
+        findById(id);
         livro.setId(id);
         return livroRepository.save(livro);
     }

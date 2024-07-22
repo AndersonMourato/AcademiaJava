@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/livro")
+@CrossOrigin("*")
 public class LivroControlle {
 
     @Autowired

@@ -23,14 +23,14 @@ public class DBServices {
         Categoria cat1 = new Categoria(null, "Informática", "Livro de informática");
         Categoria cat2 = new Categoria(null, "Ficção Científica", "Ficção Científica");
         Categoria cat3 = new Categoria(null, "Biografias", "Livros de Biografias");
-        Categoria cat4 = new Categoria(null, "Infantil", "Livro Infantil");
+        Categoria cat4 = new Categoria(null, "Infantil", "Livros Infantis");
 
-        Livro l1 = new Livro(null, "Clean code", "Robertin Martin", "Lorem ipsum", Tamanho.MEDIO, cat1);
-        Livro l2 = new Livro(null, "Engenharia de Software", "Louis V. Gerstner", "Lorem ipsum", Tamanho.GRANDE, cat1);
-        Livro l3 = new Livro(null, "The time machine", "H. G. Wells", "Lorem ipsum", Tamanho.MEDIO, cat2);
-        Livro l4 = new Livro(null, "The war of the worlds", "H. G. Wells", "Lorem ipsum", Tamanho.PEQUENO, cat2);
-        Livro l5 = new Livro(null, "I, robot", "Isaac Asimov", "Lorem ipsum", Tamanho.GRANDE, cat2);
-        Livro l6 = new Livro(null, "I, robot", "Isaac Asimov", "Lorem ipsum", Tamanho.GRANDE, cat4);
+        Livro l1 = new Livro(null, "Clean code", "Robertin Martin", "A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.", Tamanho.MEDIO, cat1);
+        Livro l2 = new Livro(null, "Engenharia de Software", "Louis V. Gerstner", "A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.", Tamanho.GRANDE, cat1);
+        Livro l3 = new Livro(null, "The time machine", "H. G. Wells", "A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.", Tamanho.MEDIO, cat2);
+        Livro l4 = new Livro(null, "The war of the worlds", "H. G. Wells", "A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.", Tamanho.PEQUENO, cat2);
+        Livro l5 = new Livro(null, "A expressão", "Isaac Asimov", "A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.", Tamanho.GRANDE, cat2);
+        Livro l6 = new Livro(null, "Lorem ipsum", "Isaac Asimov", "A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.", Tamanho.GRANDE, cat4);
 
         cat1.getLivros().addAll(Arrays.asList(l1, l2));
         cat2.getLivros().addAll(Arrays.asList(l3, l4, l5));
